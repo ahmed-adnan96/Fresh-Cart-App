@@ -1,0 +1,51 @@
+<section class="py-5 w-75 mx-auto" *ngIf="images.length > 0 ">
+        <div class="container">
+                <div class="row  align-items-center g-4 bg-light  rounded-4 shadow ">
+                        <div class="col-md-3">
+                                <owl-carousel-o [options]="imageProduct">
+                                        <ng-container *ngFor="let slide of images">
+                                                <ng-template carouselSlide>
+                                                        <lib-ngx-image-zoom class="width " zoomMode="click"
+                                                                [thumbImage]="slide" [fullImage]="slide"
+                                                                [magnification]="1"></lib-ngx-image-zoom>
+                                                </ng-template>
+                                        </ng-container>
+                                </owl-carousel-o>
+                        </div>
+                        <div class="col-md-9">
+                                <h2 class="h5">{{dataProduct.title}}</h2>
+                                <p class="text-muted small">{{dataProduct.description}} </p>
+                                <span>{{dataProduct.category.name}}</span>
+                                <div class="d-flex align-items-center justify-content-between">
+                                        <p *ngIf="discount ; else notDiscount " class="my-3"> <span class="small me-3"> <del>{{dataProduct.price |
+                                                                currency:'EGP'}}</del></span>
+                                                <span class="small text-main"> <b> {{dataProduct.priceAfterDiscount |
+                                                                currency:'EGP'}} </b></span>
+                                        </p>
+                                        <ng-template #notDiscount>
+                                                <p  class="small my-3 ">{{dataProduct.price | currency:'EGP'}} </p>
+                                        </ng-template>
+                                        
+
+                                        <p>
+                                                <ng-container *ngFor="let start of fullStarts">
+                                                                <i class="fas fa-star rating-color"></i>
+                                                </ng-container>
+                                                <i *ngIf="hasHalfRating" class="fa-solid fa-star-half-stroke rating-color"></i>
+                                               <ng-container *ngFor="let star of emptyStarts">
+                                                <i class="fa-regular fa-star" style="color: gray;"></i>
+
+                                               </ng-container>
+                                               ({{this.rating}})
+                                                
+                                        </p>
+
+                                </div>
+                                <button 
+                                (click)="addCart(dataProduct._id , btnCart)"
+                                class="main-btn w-100" #btnCart>+ Add To Cart </button>
+                        </div>
+                </div>
+        </div>
+
+</section>

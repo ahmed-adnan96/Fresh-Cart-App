@@ -1,0 +1,18 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4  mx-auto justify-content-center  align-items-center  ">
+            <div *ngFor="let category of categories" class=" col-sm-6 col-md-4 col-lg-3">
+                <mat-card [routerLink]="['/categorydetails', category._id]" role="button" class="example-card">
+                    <img mat-card-image  [src]="category.image"
+                        [alt]="category.name">
+                    <mat-card-content  class="shadow">
+                        <h5 class="text-center pt-2">
+                                {{category.name}}
+                        </h5>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </div>
+    </div>
+</section>

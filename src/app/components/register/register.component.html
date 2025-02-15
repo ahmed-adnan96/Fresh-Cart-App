@@ -1,0 +1,70 @@
+<section>
+        <div class="container">
+                <h3 class="my-2">Register Now : </h3>
+                <form [formGroup]="registerForm" class="w-75 m-auto bg-main-light box my-4 p-4 rounded-4"
+                        (ngSubmit)="createUser()">
+                        <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" formControlName="name" id="name">
+                                <div class="small ps-3 my-2" [class.is-invalid]="nameControl?.invalid"
+                                        *ngIf=" nameControl?.touched && nameControl?.invalid  ">
+                                        <p *ngIf="nameControl?.getError('required')">Name is a Required</p>
+                                        <p *ngIf="nameControl?.getError('minlength')">must be at least 3 chars </p>
+                                        <p *ngIf="nameControl?.getError('maxlength')">must be not more than 10 chars
+                                        </p>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" formControlName="email" class="form-control" id="email">
+                                <div class="small ps-3 my-2" [class.is-invalid]="emailControl?.invalid"
+                                        *ngIf=" emailControl?.touched && emailControl?.invalid  ">
+                                        <p *ngIf="emailControl?.getError('required')">Email is a Required</p>
+                                        <p *ngIf="emailControl?.getError('misEmail')">Please enter a valid email address
+                                                ,example&commat;gmail.com </p>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <p-password formControlName="password" id="password" [toggleMask]="true"></p-password>
+                                <div class="small ps-3 my-2" [class.is-invalid]="passwordControl?.invalid"
+                                        *ngIf=" passwordControl?.touched && passwordControl?.invalid  ">
+                                        <p *ngIf="passwordControl?.getError('required')">Password is a Required</p>
+                                        <p *ngIf="passwordControl?.getError('pattern')">must be at least 6 chars</p>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="rePassword" class="form-label d-block">Confirm Password</label>
+                                <!-- <input type="password" class="form-control" formControlName="rePassword" id="rePassword"> -->
+                                <p-password formControlName="rePassword" id="rePassword"
+                                        [toggleMask]="true"></p-password>
+                                <div class="small ps-3 my-2"
+                                        *ngIf="rePasswordControl?.touched && registerForm?.invalid">
+                                        <p *ngIf="rePasswordControl?.getError('required')">Password is a Required</p>
+                                        <p *ngIf="registerForm.getError('misMatch')">Password confirmation is incorrect
+                                        </p>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="phone" class="form-control" formControlName="phone" id="phone">
+                                <div class="small ps-3 my-2"
+                                        *ngIf="phoneNumberControl?.touched && phoneNumberControl?.invalid">
+                                        <p *ngIf="phoneNumberControl?.getError('required')">Phone Number is a Required
+                                        </p>
+                                        <p *ngIf="phoneNumberControl?.getError('pattern')">Please enter a valid Egyptian
+                                                phone number</p>
+                                </div>
+                        </div>
+
+                        <button class="main-btn d-block me-auto" [disabled]="registerForm.invalid">
+
+                                <span>Register</span>
+                                <span *ngIf="isLoad" class="ps-2"><i class="pi pi-spin pi-spinner"></i></span>
+
+                        </button>
+                        <p *ngIf="errorMsg" class="text-center"> {{errorMsg}} </p>
+
+                </form>
+        </div>
+</section>

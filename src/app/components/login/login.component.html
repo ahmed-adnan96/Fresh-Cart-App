@@ -1,0 +1,41 @@
+<section>
+        <div class="container">
+                <h3 class="my-2">Login : </h3>
+                <form [formGroup]="loginUSer" class="w-75 m-auto bg-main-light box my-4 p-4 rounded-4"
+                        (ngSubmit)="loginUser()">
+
+                        <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" formControlName="email" class="form-control" id="email">
+                                <div class="small ps-3 my-2" [class.is-invalid]="emailControl?.invalid"
+                                        *ngIf=" emailControl?.touched && emailControl?.invalid  ">
+                                        <p *ngIf="emailControl?.getError('required')">Email is a Required</p>
+                                        <p *ngIf="emailControl?.getError('misEmail')">Please enter a valid email address
+                                                ,example&commat;gmail.com </p>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <p-password formControlName="password" id="password" [feedback]="false"
+                                        [toggleMask]="true"></p-password>
+                                <div class="small ps-3 my-2" [class.is-invalid]="passwordControl?.invalid"
+                                        *ngIf=" passwordControl?.touched && passwordControl?.invalid  ">
+                                        <p *ngIf="passwordControl?.getError('required')">Password is a Required</p>
+                                </div>
+                        </div>
+
+                               <div class="d-flex justify-content-center align-items-center">
+                                <button class="main-btn d-block me-auto" [disabled]="loginUSer.invalid">
+
+                                        <span>Login</span>
+                                        <span *ngIf="isLoad" class="ps-2"><i class="pi pi-spin pi-spinner"></i></span>
+        
+                                </button>
+                                <a routerLink="/forget-Password"  role="button" class="link-danger">Forget Password</a>
+                               </div> 
+
+                        <p *ngIf="errorMsg" class="text-center"> {{errorMsg}} </p>
+
+                </form>
+        </div>
+</section>

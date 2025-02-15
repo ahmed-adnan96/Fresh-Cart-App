@@ -1,0 +1,37 @@
+$main-color: #0aad0a;
+:host{
+ 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollTop{
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+    z-index: 999;
+    border: none;
+    font-size:25px;
+    padding: 1%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: .9;
+    background-color: $main-color;
+    color: #fff;
+    
+
+
+}
+.opactiy {
+    opacity: 1;
+     transition:  opacity .2s linear;
+}
+
+.main-section{
+    padding-top: 5%;
+}

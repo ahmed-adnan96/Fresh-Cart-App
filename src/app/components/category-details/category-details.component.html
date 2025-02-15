@@ -1,0 +1,19 @@
+<section class="py-5">
+        <div class="container">
+                <div class="w-75 bg-gr mx-auto rounded-4 shadow">
+                    <div class="row g-1 align-items-center py-4 "  >
+                        <div  class="col-md-6  d-flex justify-content-center">
+                                <img [src]="categoryDetails.image" class="w-75 rounded-4 shadow" [alt]="categoryDetails.name">
+                        </div>
+                        <div class="col-md-6">
+                                <h3>{{categoryDetails.name}}</h3>
+                                <h4>Sub Categories : </h4>
+                                <ng-container *ngFor="let sub of filterName">
+                                    <span class="badge mx-2 rounded-pill text-bg-dark">{{sub}}</span>
+                                </ng-container>
+                                
+                        </div>
+                    </div>
+                </div>
+        </div>
+</section>

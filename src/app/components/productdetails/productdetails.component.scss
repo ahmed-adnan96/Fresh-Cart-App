@@ -1,0 +1,16 @@
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.2) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.2) 0px 1px 10px 0px;
+::ng-deep {
+    .ngxImageZoomContainer {
+      width: 100% !important;
+      border-radius: 15px !important;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+    }
+    .ngxImageZoomContainer > img {
+      height: 350px;
+    }
+  }

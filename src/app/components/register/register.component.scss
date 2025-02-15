@@ -1,0 +1,31 @@
+input{
+    box-shadow: none !important;
+    // .form-control:focus
+&:focus{
+    border-color: #0aad0a;
+}
+}
+
+p{
+    color: rgb(144, 32, 32);
+    padding: 0 !important;
+}
+
+:host {
+    ::ng-deep .p-password {
+        width: 100% !important;
+      input {
+        width: 100%  !important;
+   
+      }
+      .p-inputtext {
+        &:focus{
+            border-color: #0aad0a;
+        }
+        &:enabled:hover{
+            border-color: #ddd !important;
+        }
+        box-shadow: none !important;
+      }
+    }
+  }

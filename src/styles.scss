@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+// @import 'ngx-toastr/toastr';
+// @import 'ngx-toastr/toastr-bs5-alert';
+/* You can add global styles to this file, and also import other style files */
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.2) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.2) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+html{
+  scroll-behavior: smooth !important;
+}
+body {
+  font-family: $font-family !important;
+
+}
+.text-main {
+  color: $main-color;
+}
+.bg-main-light {
+  background-color: $light-color;
+}
+.bg-main {
+  background-color: $main-color;
+}
+.rating-color {
+  color: $rating-color;
+}
+.font-sm {
+  font-size: 11px;
+}
+.main-btn {
+  background: $main-color;
+  border-radius: 5px;
+  color: #fff;
+  border: unset;
+  cursor: pointer;
+  padding: 4px 8px;
+
+  &:disabled {
+    background: #078e076c;
+    color: #ffffff9c;
+    cursor: not-allowed;
+  }
+}
+
+.product {
+    border:  1px solid $main-color;
+    border-radius: 5px;
+    padding: 4px;
+    box-shadow: $shadow;
+}
+.active-link{
+  color: #fff !important;
+  background-color: $main-color !important;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  transition: all linear $main-transition;
+}
+.filter {
+  filter: drop-shadow($shadow) !important;
+};
+.box{
+  box-shadow: $shadow;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-track{
+  // background: $light-color;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb{
+  background-color: $main-color;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	
+}

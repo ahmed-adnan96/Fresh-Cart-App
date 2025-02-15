@@ -1,0 +1,50 @@
+<section class="py-5">
+    <h2 class="h1 text-center text-main pb-4 fw-bold">Welcome {{userName}}</h2>
+
+    <div class="container my-5">
+
+        <table *ngIf="addresses.length > 0" class="table table-light text-center border-2 shadow rounded-2">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">City</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let address of addresses ; let i = index">
+                <tr>
+                    
+                    <td>{{i+1}}</td>
+                    <td>{{address.name}}</td>
+                    <td>{{address.details}}</td>
+                    <td>{{address.phone}}</td>
+                    <td>{{address.city}}</td>
+                    <td role="button">
+                        <span (click)="deletAddress(address._id)">
+                            <i class="fa-regular text-warning fa-trash-can"></i>
+                        </span>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="information-addresses">
+        <form [formGroup]="userAddresses" class="form-control  pt-4  shadow" (ngSubmit)="addAddress()">
+            <div class="d-flex justify-content-between gap-4 align-items-center">
+                <input type="text" formControlName="name" class="form-control w-25" placeholder="name">
+                <input type="text" formControlName="details" class="form-control w-25" placeholder="Details">
+                <input type="phone" formControlName="phone" class="form-control w-25" placeholder="Phone Number">
+                <input type="text" formControlName="city" class="form-control w-25" placeholder="City">
+            </div>
+            <button [disabled]="userAddresses.invalid" class=" text-white d-block mx-auto w-25 my-3  main-btn">
+                Add Address
+            </button>
+        </form>
+    </div>
+
+</section>

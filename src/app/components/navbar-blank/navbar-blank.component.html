@@ -1,0 +1,82 @@
+<nav #navBlank class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand" routerLink="">
+            <img src="./assets/freshcart-logo.svg" alt="Fresh cart">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="products">Products</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="brands">Brands</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 d-flex align-items-center  mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link  position-relative" routerLink="wishlist">
+                        <i class="fa-solid fa-heart text-danger fa-2x me-3"></i>
+                        <span
+                            class="position-absolute top-5 end-0 translate-middle badge rounded-bill bg-info">{{this.countWish}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  position-relative" routerLink="cart">
+                        <i class="fas fa-cart-shopping text-main fa-2x me-3"></i>
+                        <span class="position-absolute top-5 end-0 translate-middle badge rounded-bill bg-info">{{
+                            this.countCart}}</span>
+
+                    </a>
+                </li>
+                <li>
+                    <button class="menu d-flex justify-content-center align-items-center" mat-icon-button
+                        [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+
+                        <i class="fa-regular fa-user  text-main fa-lg "></i>
+
+
+                    </button>
+                </li>
+
+                <li>
+
+                    <mat-menu class="mt-3 shadow" #menu="matMenu">
+                        <button routerLink="profile" mat-menu-item>
+                            <mat-icon>person</mat-icon>
+                            <span>User Profile</span>
+                        </button>
+                        <button routerLink="myOrder" mat-menu-item>
+                            <mat-icon>shopping_bag</mat-icon>
+                            <span>My Orders</span>
+                        </button>
+                        <button routerLink="updatePassword"  mat-menu-item>
+                            <mat-icon>key</mat-icon>
+                            <span>Update Password</span>
+                        </button>
+                        <button (click)="signOut()" mat-menu-item>
+                            <mat-icon>logout</mat-icon>
+                            <span>logOut</span>
+                        </button>
+
+          
+
+                    </mat-menu>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

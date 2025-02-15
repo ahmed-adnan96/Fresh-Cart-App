@@ -1,0 +1,53 @@
+<section class="py-5">
+    <div class="container">
+            <h3 class="my-2 text-center">Payment  </h3>
+            <form [formGroup]="shipping" class="w-75 m-auto bg-main-light box my-4 p-4 rounded-4">
+                    <div class="mb-3">
+                            <label for="details" class="form-label">Details</label>
+                            <input type="text" class="form-control" formControlName="details" id="details">
+                            <div class="small ps-3 my-2" [class.is-invalid]="detailsInput?.invalid"
+                                    *ngIf=" detailsInput?.touched && detailsInput?.invalid  ">
+                                    <p *ngIf="detailsInput?.getError('required')">Name is a Required</p>
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" formControlName="city" id="city">
+                            <div class="small ps-3 my-2" [class.is-invalid]="cityInput?.invalid"
+                                    *ngIf=" cityInput?.touched && cityInput?.invalid  ">
+                                    <p *ngIf="detailsInput?.getError('required')">City is a Required</p>
+
+                            </div>
+                    </div>
+
+                    <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="phone" class="form-control" formControlName="phone" id="phone">
+                            <div class="small ps-3 my-2"
+                                    *ngIf="phoneInput?.touched && phoneInput?.invalid">
+                                    <p *ngIf="phoneInput?.getError('required')">Phone Number is a Required
+                                    </p>
+                                    <p *ngIf="phoneInput?.getError('pattern')">Please enter a valid Egyptian
+                                            phone number</p>
+                            </div>
+                    </div>
+
+                    <div class=" w-100 d-flex justify-content-around align-items-center  ">
+                        <button #btn1  (click)="paymentVisa( categoryId , shipping , btn1)" class="main-btn w-40   p-2" [disabled]="shipping.invalid">
+
+                            Payment <span class="ms-2"><i class="fa-brands  fa-cc-visa fa-lg"></i></span>
+    
+                        </button>
+                        <button #btn2 (click)="paymentCash(categoryId , shipping , btn2)" class="main-btn   w-40  p-2" [disabled]="shipping.invalid">
+
+                            Payment <span class="ms-2">
+                                <i class="fa-solid fa-wallet fa-lg"></i>
+                            </span>
+    
+                        </button>
+                    </div>
+                    <!-- <p *ngIf="errorMsg" class="text-center"> {{errorMsg}} </p> -->
+
+            </form>
+    </div>
+</section>

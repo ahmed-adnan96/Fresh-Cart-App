@@ -1,0 +1,7 @@
+input{
+    box-shadow: none !important;
+    // .form-control:focus
+&:focus{
+    border-color: #0aad0a;
+}
+}

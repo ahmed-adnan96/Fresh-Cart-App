@@ -1,0 +1,99 @@
+$main-color: #0aad0a;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.2) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.2) 0px 1px 10px 0px;
+.category-slider{
+    owl-carousel-o{   
+    img{
+        height: 250px;
+    }
+}
+}
+.product{
+  position: relative;
+  overflow: hidden !important;
+  .right{
+    position: absolute;
+    top: 6%;
+    left: -20%;
+    z-index: 999;
+    transition: .7s linear;
+    opacity: 0;
+    color: $main-color;
+    font-size: 40px;
+
+  }
+  .left{
+    position: absolute;
+    top: 6%;
+    right: -20%;
+    z-index: 999;
+    transition: .7s linear;
+    opacity: 0;
+    font-size: 40px;
+
+  }
+
+  &:hover{
+    .right{
+      left: 5%;
+      opacity: 1;
+    }
+    .left{
+      right: 5%;
+      opacity: 1;
+    }
+  }
+
+
+
+}
+
+input{
+  box-shadow: none !important;
+  // .form-control:focus
+&:focus{
+  border-color: #0aad0a;
+}
+}
+
+
+:host ::ng-deep .blurIn {
+    animation-name: blurIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+ 
+  }
+  
+  :host ::ng-deep .blurOut  {
+    animation-name: blurOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+   
+  }
+  
+  @keyframes blurIn {
+    from {
+      filter: blur(10px);
+      opacity: 0;
+    }
+    to {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes blurOut {
+    from {
+      filter: blur(0);
+      opacity: 1;
+    }
+    to {
+      filter: blur(10px);
+      opacity: 0;
+    }
+  }
+.icon{
+  color: #99c299
+  
+}

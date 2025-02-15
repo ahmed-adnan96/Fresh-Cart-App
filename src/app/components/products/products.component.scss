@@ -1,0 +1,43 @@
+$main-color: #0aad0a;
+.product{
+    position: relative;
+    overflow: hidden !important;
+    .right{
+      position: absolute;
+      top: 6%;
+      left: -20%;
+      z-index: 999;
+      transition: .7s linear;
+      opacity: 0;
+      color: $main-color;
+      font-size: 40px;
+  
+    }
+    .left{
+      position: absolute;
+      top: 6%;
+      right: -20%;
+      z-index: 999;
+      transition: .7s linear;
+      opacity: 0;
+      font-size: 40px;
+  
+    }
+    &:hover{
+      .right{
+        left: 5%;
+        opacity: 1;
+      }
+      .left{
+        right: 5%;
+        opacity: 1;
+      }
+    }
+  }
+  
+
+
+.icon{
+    color: #99c299
+    
+  }

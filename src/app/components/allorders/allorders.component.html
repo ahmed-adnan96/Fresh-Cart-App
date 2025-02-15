@@ -1,0 +1,46 @@
+<section class="py-5">
+    <div *ngIf="allDetailsOrder.length>0" class="container main bg-main-light py-5 rounded-4" >
+        <h2 class=" text-main text-center ">All Orders</h2>
+        <div class="row w-75 border mx-auto p-5 align-items-center "
+       
+            *ngFor="let order of allDetailsOrder ; let i = index">
+
+            <div class="col-md-6  ">
+                <h6 class="">Order {{i+1}}</h6>
+                <div *ngFor="let item of order.cartItems">
+                    <div class="row   align-items-center">
+                        <div class="col-md-3 ">
+                            <img [src]="item.product.imageCover" class="w-100" alt="item.product.title">
+                        </div>
+                        <div class="col-md-9">
+                            <p class="text-main">{{item.product.title}}</p>
+                            <p> Count : {{item.count}}</p>
+                            <p> Price : {{item.price}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="w-75 mx-auto shadow border rounded py-3 p-2 small">
+                    <p class="p-0 my-1" *ngIf="order.isDelivered ; else isNotDelivered">Is Delivered: <span
+                            class="bg-warnnig  p-1 rounded">Yes</span> </p>
+                    <ng-template #isNotDelivered>
+                        <p class="p-0 my-1">Is Delivered: <span class="bg-danger p-1 rounded">No</span> </p>
+                    </ng-template>
+                    <p class="p-0 my-1" *ngIf="order.isPaid ; else isNotPaid">Is Paid : <span
+                            class="bg-warning p-1 rounded">Yes</span></p>
+                    <ng-template #isNotPaid>
+                        <p class="p-0 my-1">Is Paid : <span class="bg-danger p-1 rounded"> No </span> </p>
+                    </ng-template>
+                    <p class="p-0 my-1">Payment Method Type:{{order.paymentMethodType}}</p>
+                    <p class="p-0 my-1">totalOrderPrice: {{order.totalOrderPrice | currency:'EGP'}}</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+</section>

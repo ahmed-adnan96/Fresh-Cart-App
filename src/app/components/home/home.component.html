@@ -1,0 +1,94 @@
+<section class="static-slide pt-5">
+    <div>
+        <div class="row g-0">
+            <div class="col-9">
+                <owl-carousel-o class="owl-theme" [options]="staticSlide">
+                    <ng-template carouselSlide>
+                        <img height="400" src="./assets/slider-image-1.jpeg" alt="slide 1 ">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img height="400" src="./assets/slider-image-2.jpeg" alt="slide 2">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img height="400" src="./assets/slider-image-3.jpeg" alt="slide 3">
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+            <div class="col-3">
+                <img height="200" class="w-100" src="./assets/slider-1.jpeg" alt="slider-1">
+                <img height="200" class="w-100" src="./assets/slider-2.jpeg" alt="slider-2">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="category-slider py-5 " *ngIf="categories.length > 0 ">
+    <h2 class="pb-3">
+        Popular Categories
+    </h2>
+
+    <div class=" rounded">
+
+        <owl-carousel-o [options]="customOptions">
+
+            <ng-container *ngFor="let category of categories">
+                <ng-template carouselSlide [id]="category._id">
+                    <img [src]="category.image" class="rounded " [alt]="category.slug" [title]="category.slug">
+                    <h6 class="text-main text-center py-3">{{category.name}}</h6>
+                </ng-template>
+            </ng-container>
+
+        </owl-carousel-o>
+    </div>
+
+
+</section>
+
+
+<section class="py-5" *ngIf="products.length >0">
+    <h2 class="pb-3">
+        Popular Products
+    </h2>
+        <input  [(ngModel)]="term" type="text" class="form-control mx-auto w-50 form-control-sm mt-2 mb-4 " placeholder="searching...">
+    <div class="row g-3">
+        <div *ngFor="let product of products | search : term | slice : 0 : 18  " class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="product">
+                <header role="button" [routerLink]="['/productdetails', product._id]">
+                    <div class="h-100">
+                        <img [src]="product.imageCover" [title]="product.title" [alt]="product.title" class="w-100 ">
+                    </div>
+                    <div class="p-1">
+                        <h3 class="h6">{{product.title | cuttext:2}}</h3>
+                        <h4 class="h6 text-main">{{product.category.name }}</h4>
+                        <div class="small d-flex align-items-center justify-content-between">
+                            <p>{{product.price | currency :'£E'}}</p>
+                            <p>
+                                <span>
+                                    <i class="fas fa-star rating-color"></i>
+                                </span>
+                                {{product.ratingsAverage}}
+                            </p>
+
+                        </div>
+                    </div>
+                </header>
+                <div class="right">
+                    <span (click)="addCart(product._id , btnCart)" role="button">
+                        <i class="fa-solid fa-cart-arrow-down fa-bounce   " #btnCart></i>
+                    </span>
+                </div>
+                <div class="left">
+                    <span *ngIf="!wishListArr.includes(product._id)" (click)="addToWish(product._id)"  role="button">
+                   
+                        <i class="fa-regular fa-heart "></i>
+                    </span>
+                    <span *ngIf="wishListArr.includes(product._id)" (click)="removeWish(product._id)"  role="button" class="text-danger">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

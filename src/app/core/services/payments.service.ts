@@ -33,7 +33,7 @@ export class PaymentsService {
     // visa payment 
 
     onlinePayment(id:string , userInform : object ):Observable<any>{
-      return this._HttpClient.post(enviroment.apiPayment + `api/v1/orders/checkout-session/${id}?url=http://localhost:4200 ` , {
+      return this._HttpClient.post(enviroment.apiPayment + `api/v1/orders/checkout-session/${id}?url=https://fresh-cart-app-seven.vercel.app/` , {
         shippingAddress : userInform
       } , {
         headers : this.myToken

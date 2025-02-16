@@ -22,20 +22,22 @@ ngOnInit(): void {
 ngAfterViewInit(): void {
   //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
   //Add 'implements AfterViewInit' to the class.
-  this._Renderer2.addClass(this.HTMLButtonElement.nativeElement , 'd-none')
+  this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'opacity', '0')
+  this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'visibility', 'hidden')
 }
 @HostListener('window:scroll')
 scrollUp():void{
   if(scrollY < 400 ){
-    this._Renderer2.addClass(this.HTMLButtonElement.nativeElement , 'd-none')
+    this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'opacity', '0')
+    this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'visibility', 'hidden')
   }
   else {
-    this._Renderer2.removeClass(this.HTMLButtonElement.nativeElement , 'd-none')
-
+    this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'opacity', '1');
+    this._Renderer2.setStyle(this.HTMLButtonElement.nativeElement , 'visibility', 'visible');
   }
 }
 scrollToTop():void{
-  window.scrollTo(0,0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 

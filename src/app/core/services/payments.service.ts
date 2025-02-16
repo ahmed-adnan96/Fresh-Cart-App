@@ -25,9 +25,7 @@ export class PaymentsService {
     cashPayment(id:string , userInform : object):Observable<any>{
       return this._HttpClient.post(enviroment.apiPayment + `api/v1/orders/${id}` , {
         shippingAddress : userInform
-      } , {
-        headers : this.myToken
-      })
+      } )
     }
 
     // visa payment 
@@ -35,10 +33,13 @@ export class PaymentsService {
     onlinePayment(id:string , userInform : object ):Observable<any>{
       return this._HttpClient.post(enviroment.apiPayment + `api/v1/orders/checkout-session/${id}?url=https://fresh-cart-app-seven.vercel.app/` , {
         shippingAddress : userInform
-      } , {
-        headers : this.myToken
-      })
+      } )
     }
+    // onlinePayment(id:string , userInform : object ):Observable<any>{
+    //   return this._HttpClient.post(enviroment.apiPayment + `api/v1/orders/checkout-session/${id}?url=https://fresh-cart-app-seven.vercel.app/` , {
+    //     shippingAddress : userInform
+    //   } )
+    // }
 
 
 
